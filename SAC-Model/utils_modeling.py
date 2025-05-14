@@ -282,10 +282,12 @@ def response_extraction(state_monitor, motion_duration, spatial_conversion):
     calciumCurrent_outward = state_monitor.ICa[-nb_distal_compartments:,index_outward_motion]
     calciumCurrent_inward = state_monitor.ICa[-nb_distal_compartments:,index_inward_motion]
 
-    return voltage_outward, voltage_inward, DSI_voltage_compartments, 
+    return (
+            voltage_outward, voltage_inward, DSI_voltage_compartments, 
             mean_DSI_voltage, calcium_outward, calcium_inward, 
             DSI_calcium_compartments, mean_DSI_calcium, 
             calciumCurrent_outward, calciumCurrent_inward
+        )
 
 def run_model(kernels, synapse_locations, extension_right, extension_left,
               outward_stimulus, inward_stimulus,
